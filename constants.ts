@@ -5,20 +5,24 @@ export const CANVAS_HEIGHT = 300; // Simulation height
 
 export const DEFAULT_PALETTES: Palette[] = [
   {
-    name: 'Cosmic Dust',
-    colors: ['#FF0099', '#493240', '#FF00CC', '#330033', '#9900CC'],
+    name: 'Cyber Punk',
+    colors: ['#FF0055', '#00FFCC', '#7000FF', '#FFFF00', '#0011FF'],
   },
   {
-    name: 'Desert Sunset',
-    colors: ['#F9D423', '#FF4E50', '#F3904F', '#E94057', '#8A2387'],
+    name: 'Deep Space',
+    colors: ['#E0F2FE', '#7DD3FC', '#0284C7', '#0C4A6E', '#082F49'],
   },
   {
-    name: 'Ocean Depths',
-    colors: ['#00C9FF', '#92FE9D', '#00d2ff', '#3a7bd5', '#005C97'],
+    name: 'Magma Core',
+    colors: ['#FFD700', '#FF8C00', '#FF4500', '#8B0000', '#2F0000'],
   },
   {
-    name: 'Neon Cyber',
-    colors: ['#00f260', '#0575E6', '#8E2DE2', '#4A00E0', '#fc6767'],
+    name: 'Toxic Waste',
+    colors: ['#CCFF00', '#99FF00', '#66CC00', '#336600', '#1A3300'],
+  },
+  {
+    name: 'Synthwave',
+    colors: ['#ff71ce', '#01cdfe', '#05ffa1', '#b967ff', '#fffb96'],
   },
 ];
 

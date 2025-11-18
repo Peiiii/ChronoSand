@@ -6,7 +6,7 @@
     <title>ChronoSand AI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -18,37 +18,55 @@
             },
             colors: {
               glass: {
-                100: 'rgba(255, 255, 255, 0.1)',
-                200: 'rgba(255, 255, 255, 0.2)',
-                300: 'rgba(255, 255, 255, 0.3)',
-                900: 'rgba(15, 23, 42, 0.8)',
+                100: 'rgba(255, 255, 255, 0.05)',
+                200: 'rgba(255, 255, 255, 0.1)',
+                300: 'rgba(255, 255, 255, 0.2)',
+                800: 'rgba(15, 23, 42, 0.6)',
+                900: 'rgba(2, 6, 23, 0.85)', // Darker, more opaque for readability
+              },
+              accent: {
+                500: '#6366f1', // Indigo
+                400: '#818cf8',
               }
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             }
           }
         }
       }
     </script>
     <style>
-      /* Custom scrollbar */
+      /* Custom sleek scrollbar */
       ::-webkit-scrollbar {
-        width: 4px;
-        height: 4px;
+        width: 6px;
+        height: 6px;
       }
       ::-webkit-scrollbar-track {
-        background: transparent;
+        background: rgba(0, 0, 0, 0.1);
+        margin: 4px 0;
       }
       ::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 2px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 10px;
+        border: 1px solid rgba(0,0,0,0.1);
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: rgba(255, 255, 255, 0.4);
+        background: rgba(255, 255, 255, 0.3);
       }
       body {
         background-color: #020617; /* Slate 950 */
         color: #f8fafc;
         overflow: hidden;
         touch-action: none;
+      }
+      /* Hide scrollbar for clean UI in specific containers if needed */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
       }
     </style>
   <script type="importmap">
@@ -61,6 +79,7 @@
     "react-icons/fa": "https://aistudiocdn.com/react-icons@^5.5.0/fa",
     "react-icons/md": "https://aistudiocdn.com/react-icons@^5.5.0/md",
     "react-icons/bi": "https://aistudiocdn.com/react-icons@^5.5.0/bi",
+    "react-icons/io5": "https://aistudiocdn.com/react-icons@^5.5.0/io5",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
     "react-icons/": "https://aistudiocdn.com/react-icons@^5.5.0/"
   }
