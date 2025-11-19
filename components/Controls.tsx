@@ -4,7 +4,7 @@ import { DEFAULT_PALETTES } from '../constants';
 import { generatePalette } from '../services/geminiService';
 import { 
   FaPlay, FaPause, FaTrash, FaEraser, FaMagic, 
-  FaSquare, FaCircle, FaDownload, FaTimes, FaFire
+  FaSquare, FaCircle, FaDownload, FaTimes, FaFire, FaWater
 } from 'react-icons/fa';
 import { IoSparklesSharp } from "react-icons/io5";
 import { MdColorLens, MdBrush, MdLayers } from 'react-icons/md';
@@ -58,16 +58,6 @@ const Controls: React.FC<ControlsProps> = ({
       setIsGenerating(false);
     }
   };
-
-  // Function to determine text color based on background brightness
-  const getContrastYIQ = (hexcolor: string) => {
-    hexcolor = hexcolor.replace("#", "");
-    var r = parseInt(hexcolor.substr(0, 2), 16);
-    var g = parseInt(hexcolor.substr(2, 2), 16);
-    var b = parseInt(hexcolor.substr(4, 2), 16);
-    var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
-    return (yiq >= 128) ? 'black' : 'white';
-  }
 
   return (
     <div className="flex flex-col h-full text-white/90 font-sans">
@@ -132,18 +122,20 @@ const Controls: React.FC<ControlsProps> = ({
         {/* 2. Tools & Brush (Bento Row 2) */}
         <div className="bg-glass-100 rounded-3xl p-4 border border-white/5 space-y-4">
           {/* Tool Selector */}
-          <div className="grid grid-cols-3 gap-2 bg-black/20 p-1.5 rounded-xl">
+          <div className="grid grid-cols-5 gap-1 bg-black/20 p-1.5 rounded-xl">
             {[
               { id: ToolType.SAND, icon: FaCircle, label: 'Sand' },
+              { id: ToolType.WATER, icon: FaWater, label: 'Water' },
+              { id: ToolType.FIRE, icon: FaFire, label: 'Fire' },
               { id: ToolType.STONE, icon: FaSquare, label: 'Wall' },
               { id: ToolType.ERASER, icon: FaEraser, label: 'Erase' },
             ].map((t) => (
               <button
                 key={t.id}
                 onClick={() => setActiveTool(t.id)}
-                className={`flex flex-col items-center justify-center gap-1 py-2 rounded-lg text-xs font-medium transition-all ${activeTool === t.id ? 'bg-white/10 text-white shadow-sm ring-1 ring-white/10' : 'text-white/40 hover:text-white/70'}`}
+                className={`flex flex-col items-center justify-center gap-1 py-2 rounded-lg text-[10px] font-medium transition-all ${activeTool === t.id ? 'bg-white/10 text-white shadow-sm ring-1 ring-white/10' : 'text-white/40 hover:text-white/70'}`}
               >
-                <t.icon size={10} />
+                <t.icon size={12} />
                 <span>{t.label}</span>
               </button>
             ))}
@@ -239,13 +231,13 @@ const Controls: React.FC<ControlsProps> = ({
                   {palette.colors.map((color, cid) => (
                     <button
                       key={cid}
-                      onClick={() => { setActiveColor(color); setActiveTool(ToolType.SAND); }}
+                      onClick={() => { setActiveColor(color); }}
                       className="flex-1 h-full relative focus:outline-none group/color"
                       style={{ backgroundColor: color }}
                       title={color}
                     >
-                      {/* Active Indicator */}
-                      {activeColor === color && activeTool === ToolType.SAND && (
+                      {/* Active Indicator - Modified to just show circle on color regardless of tool */}
+                      {activeColor === color && (
                         <div className="absolute inset-0 flex items-center justify-center">
                           <div className="w-2 h-2 bg-white rounded-full shadow-sm ring-2 ring-black/20"></div>
                         </div>
